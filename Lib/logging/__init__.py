@@ -1500,10 +1500,7 @@ class Logger(Filterer):
         if self.isEnabledFor(WARNING):
             self._log(WARNING, msg, args, **kwargs)
 
-    def warn(self, msg, *args, **kwargs):
-        warnings.warn("The 'warn' method is deprecated, "
-            "use 'warning' instead", DeprecationWarning, 2)
-        self.warning(msg, *args, **kwargs)
+    warn = warning
 
     def error(self, msg, *args, **kwargs):
         """
@@ -1535,11 +1532,7 @@ class Logger(Filterer):
         if self.isEnabledFor(CRITICAL):
             self._log(CRITICAL, msg, args, **kwargs)
 
-    def fatal(self, msg, *args, **kwargs):
-        """
-        Don't use this method, use critical() instead.
-        """
-        self.critical(msg, *args, **kwargs)
+    fatal = critical
 
     def log(self, level, msg, *args, **kwargs):
         """
